@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import SurahDetail from "./pages/SurahDetail";
+import Home from "./Home";
+import SurahDetail from "./SurahDetail";
 
 function App() {
   return (

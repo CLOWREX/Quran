@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#0d1117"/>
+  <rect x="40" y="40" width="432" height="432" rx="80" fill="none" stroke="#c8a96e" stroke-width="8"/>
+  <!-- Book shape -->
+  <rect x="110" y="120" width="130" height="270" rx="12" fill="#c8a96e" opacity="0.9"/>
+  <rect x="272" y="120" width="130" height="270" rx="12" fill="#c8a96e" opacity="0.7"/>
+  <rect x="236" y="115" width="40" height="280" rx="6" fill="#c8a96e"/>
+  <!-- Lines on book -->
+  <line x1="130" y1="175" x2="220" y2="175" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="205" x2="220" y2="205" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="235" x2="220" y2="235" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="265" x2="195" y2="265" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="292" y1="175" x2="382" y2="175" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="292" y1="205" x2="382" y2="205" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="292" y1="235" x2="382" y2="235" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+  <line x1="292" y1="265" x2="357" y2="265" stroke="#0d1117" stroke-width="8" stroke-linecap="round"/>
+</svg>
