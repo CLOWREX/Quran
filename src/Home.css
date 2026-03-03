@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;600&family=Cinzel:wght@400;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d1117;
+  --bg2: #111820;
+  --bg3: #161f2a;
+  --border: rgba(200, 169, 110, 0.18);
+  --gold: #c8a96e;
+  --gold-light: #e8cc96;
+  --gold-dim: rgba(200, 169, 110, 0.12);
+  --teal: #7eb8a4;
+  --text: #e8e0d0;
+  --text-dim: #9a9080;
+  --card-bg: rgba(22, 31, 42, 0.95);
+  --card-hover: rgba(30, 42, 58, 0.98);
+  --radius: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lora', Georgia, serif;
+  min-height: 100vh;
+}
+
+/* ── Background ── */
+.home-root {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 169, 110, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(126, 184, 164, 0.05) 0%, transparent 50%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(200, 169, 110, 0.015) 40px,
+      rgba(200, 169, 110, 0.015) 41px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.home-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 24px 40px;
+}
+
+.header-ornament {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--gold);
+  display: block;
+  margin-bottom: 20px;
+  text-shadow: 0 0 40px rgba(200, 169, 110, 0.4);
+  animation: fadeDown 0.8s ease both;
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeDown 0.8s 0.1s ease both;
+}
+
+.title-arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(2rem, 7vw, 4rem);
+  color: var(--gold-light);
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+.title-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
+  letter-spacing: 6px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.header-desc {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: var(--text-dim);
+  font-style: italic;
+  animation: fadeDown 0.8s 0.2s ease both;
+}
+
+/* ── Search ── */
+.search-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  animation: fadeDown 0.8s 0.3s ease both;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg3);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 12px 20px;
+  gap: 12px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.search-box:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.12), 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.search-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+}
+
+.search-input::placeholder {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+.search-clear:hover { color: var(--gold); }
+
+.search-result-count {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Grid ── */
+.surah-grid-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.surah-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+/* ── Card ── */
+.surah-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+  animation: fadeUp 0.5s ease both;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.surah-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,169,110,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.surah-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px var(--gold), inset 0 1px 0 rgba(200,169,110,0.1);
+  border-color: var(--gold);
+  background: var(--card-hover);
+}
+
+.surah-card:hover::before { opacity: 1; }
+
+.card-number {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  background: var(--gold-dim);
+  transition: background 0.22s, border-color 0.22s;
+}
+
+.surah-card:hover .card-number {
+  background: rgba(200,169,110,0.2);
+  border-color: var(--gold);
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.card-latin {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card-arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-arti {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-style: italic;
+  truncate: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 160px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.card-ayat {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.card-jenis {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ── Skeleton Loading ── */
+.loading-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.skeleton-card {
+  height: 82px;
+  background: linear-gradient(90deg, var(--bg3) 25%, rgba(255,255,255,0.04) 50%, var(--bg3) 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite ease-in-out;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-dim);
+  animation: fadeUp 0.4s ease both;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+/* ── Footer ── */
+.home-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+/* ── Animations ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .surah-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-header {
+    padding: 40px 16px 28px;
+  }
+  .card-arti {
+    max-width: 100px;
+  }
+}
