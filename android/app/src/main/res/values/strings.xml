@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Al-Qur\'an</string>
+    <string name="title_activity_main">Al-Qur\'an</string>
+    <string name="package_name">com.mushaf.app</string>
+    <string name="custom_url_scheme">com.mushaf.app</string>
+</resources>
